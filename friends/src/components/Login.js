@@ -13,22 +13,16 @@ class Login extends React.Component{
         this.setState({
             credentials: {
                 ...this.state.credentials,
-                [e.target.
-                    name]: [e.target
-                        .value]
-            }
-        })
+                [e.target.name]: [e.target.value]
+            }})
     }
 
     login = e => {
         e.preventDefault();
-        // make a POST request to the server
-        // the server will "authenticate" the user based on their credentials
-        // If they can be authenticated the server will return a token
         axios
           .post('http://localhost:5000/api/login', this.state.credentials)
           .then(res => {
-            console.log(res);
+            localStorage.setItem('token', res.data.payload);
           })
           .catch(err => console.log(err));
       };
