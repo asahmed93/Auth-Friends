@@ -13,7 +13,7 @@ class Login extends React.Component{
         this.setState({
             credentials: {
                 ...this.state.credentials,
-                [e.target.name]: [e.target.value]
+                [e.target.name]: e.target.value
             }})
     }
 
@@ -24,7 +24,7 @@ class Login extends React.Component{
           .then(res => {
             console.log(res)
             localStorage.setItem('token', res.data.payload);
-            this.props.push('/friends')
+            this.props.history.push('/friends')
           })
           .catch(err => console.log(err));
       };
