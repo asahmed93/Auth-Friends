@@ -11,14 +11,13 @@ function AddFriend({friends, setFriends}) {
 
     const addFriend = e => {
         e.preventDefault();
-        setFriends([...friends, newFriend])
         axiosWithAuth().post('/api/friends', newFriend)
-        .then(res => setFriends([...friends, newFriend]))
+        .then(res => console.log(res))
         .catch(err => console.log(err))
     }
 
     const handleChange = e => {
-        setNewFriend({...newFriend, [e.target.name]: [e.target.value]})
+        setNewFriend({...newFriend, [e.target.name]: e.target.value})
     }
 
     return(

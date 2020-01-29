@@ -3,7 +3,7 @@ import { axiosWithAuth } from "../utils/axiosWithAuth"
 import AddFriend from "./AddFriend"
 
 const Friends = props => {
-    const [friends, setFriends] = useState([{name: 'jeff', age: 21, email: 'Blownnns@gmail.com', id: Date.now()}]);
+    const [friends, setFriends] = useState([]);
 
     useEffect(() =>{
         axiosWithAuth()
